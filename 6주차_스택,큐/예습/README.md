@@ -4,8 +4,8 @@
 
 | 문제 번호 | 제목               | 링크                                       |
 |-----------|--------------------|-------------------------------------------|
-| 11720      | 숫자의 합                | [바로가기](https://www.acmicpc.net/problem/11720) |
-| 11660      | 구간 합 구하기 2                | [바로가기](https://www.acmicpc.net/problem/11660) |
+| 10845    | 큐              | [바로가기](https://www.acmicpc.net/problem/10845) |
+| 1966      | 프린터 큐               | [바로가기](https://www.acmicpc.net/problem/1966) |
 | 10986      | 나머지 합 구하기               | [바로가기](https://www.acmicpc.net/problem/10986) |
 
 # 사용 방법
