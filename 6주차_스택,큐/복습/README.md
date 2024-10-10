@@ -7,13 +7,14 @@
 |-----------|--------------------|-------------------------------------------|
 | 10845    | 큐              | [바로가기](https://www.acmicpc.net/problem/10845) |
 | 1966      | 프린터 큐               | [바로가기](https://www.acmicpc.net/problem/1966) |
-| 10986      | 나머지 합 구하기               | [바로가기](https://www.acmicpc.net/problem/10986) |
+
 
 **스택**
 | 문제 번호 | 제목               | 링크                                       |
 |-----------|--------------------|-------------------------------------------|
-| 10828    | 스택              | [바로가기](https://www.acmicpc.net/problem/10828) |
-| 17298     | 오큰수               | [바로가기](https://www.acmicpc.net/problem/17298) |
+| 4949    | 균형잡힌 세상              | [바로가기](https://www.acmicpc.net/problem/4949) |
+| 9012     | 괄호               | [바로가기](https://www.acmicpc.net/problem/9012) |
+| 9093     | 단어 뒤집기               | [바로가기](https://www.acmicpc.net/problem/9093) |
 
 
 # 사용 방법
