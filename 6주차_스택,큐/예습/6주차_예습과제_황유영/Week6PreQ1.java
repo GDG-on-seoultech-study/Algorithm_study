@@ -1,4 +1,4 @@
-package 예습문제.week6;
+package 예습문제.week;
 
 import java.util.LinkedList;
 import java.util.Queue;
