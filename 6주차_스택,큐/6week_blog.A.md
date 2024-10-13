@@ -1,4 +1,4 @@
-## 큐, 우선순위 큐
+# 큐
 
 ### Queue
 
@@ -118,39 +118,29 @@ PriorityQueue가 각 요소를 힙이라는 자료구조의 형태로 저장한 
 
 원형 큐는 고정된 크기를 가진 큐로, 배열의 양 끝이 연결되어 **원형으로** 동작하는 구조. 즉, 큐가 꽉 차지 않으면 항상 큐의 빈 공간을 재사용 가능. 
 
-## 원형 큐의 특징
+### 원형 큐의 특징
 - **선입선출(FIFO)** 방식: 먼저 들어온 데이터가 먼저 나갑니다.
 - **고정된 크기**: 한정된 크기의 메모리를 사용하여 구현됩니다.
 - **연결된 구조**: 큐의 끝이 다시 처음과 연결된 형태로, 배열의 양 끝이 연결된 것처럼 동작합니다.
 
-![원형 큐의 형태](https://prod-files-secure.s3.us-west-2.amazonaws.com/a8c02eb2-d622-48cd-b20f-5cf5f51eb8df/f9ae0903-80da-4c69-a2b9-1d37ead0d799/image.png)
-
 ---
 
-## 삽입 (Enqueue)
+### 삽입 (Enqueue)
 
 1. **rear** 포인터가 가리키는 곳에 데이터를 삽입.
 2. 삽입이 완료되면 **rear** 포인터를 한 칸 앞으로 이동. 만약 **rear** 포인터가 배열의 끝에 도달하면 **원형**으로 돌아가 다시 배열의 처음을 가리킴.
 
-### 삽입 과정
-![원형 큐 삽입](https://prod-files-secure.s3.us-west-2.amazonaws.com/a8c02eb2-d622-48cd-b20f-5cf5f51eb8df/aa14f09b-bc23-44cb-bdd9-f0a829d767cb/image.png)
-
 ---
 
-## 삭제 (Dequeue)
+### 삭제 (Dequeue)
 
 1. **front** 포인터가 가리키는 곳에서 데이터를 제거.
 2. 제거가 완료되면 **front** 포인터를 한 칸 앞으로 이동. 만약 **front** 포인터가 배열의 끝에 도달하면 **원형**으로 돌아가 다시 배열의 처음을 가리킴.
 
-### 삭제 과정
-![원형 큐 삭제](https://prod-files-secure.s3.us-west-2.amazonaws.com/a8c02eb2-d622-48cd-b20f-5cf5f51eb8df/4e1a34c8-c5bc-49b6-a4ce-12164ff1e33e/image.png)
-
 ---
 
-## 원형 큐가 가득 찬 경우
-- **rear**가 **front**보다 한 칸 앞에 있을 때, 즉 `front == (rear + 1) % 큐 크기`인 상태일 때는 큐가 가득음.
-
-![원형 큐가 가득 찬 상태](https://prod-files-secure.s3.us-west-2.amazonaws.com/a8c02eb2-d622-48cd-b20f-5cf5f51eb8df/03386271-910b-4fee-9d03-216702ecf381/image.png)
+### 원형 큐가 가득 찬 경우
+- **rear**가 **front**보다 한 칸 앞에 있을 때, 즉 `front == (rear + 1) % 큐 크기`인 상태일 때는 큐가 가득 참.
 
 ```java
 public class CircularQueue {
