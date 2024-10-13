@@ -16,10 +16,6 @@ Queue<Integer> q = new LinkedList<>(); // int형 queue 선언
 Queue<String> q = new LinkedList<>(); // String형 queue 선언
 ```
 
-![img1.daumcdn.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/a8c02eb2-d622-48cd-b20f-5cf5f51eb8df/4c27f18f-e02f-4816-a438-3fc01774fe45/img1.daumcdn.png)
-
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/a8c02eb2-d622-48cd-b20f-5cf5f51eb8df/a365fd7a-073c-4909-9e25-805c62cbb49a/image.png)
-
 | **메서드** | **설명** |
 | --- | --- |
 | **offer(E e)** | 큐의 맨 뒤에 지정된 요소를 추가합니다. 큐가 가득 차서 요소를 추가할 수 없는 경우 false를 반환합니다. |
@@ -28,13 +24,11 @@ Queue<String> q = new LinkedList<>(); // String형 queue 선언
 | **peek()** | 큐의 맨 앞에서 요소를 반환합니다. 큐가 비어 있으면 null을 반환합니다. |
 | **clear()** | 큐의 모든 요소를 제거합니다. |
 
-![차이는 주로 큐가 꽉 차 있거나 비어 있는 상황에서 어떻게 처리하는지에 따라 결정](https://prod-files-secure.s3.us-west-2.amazonaws.com/a8c02eb2-d622-48cd-b20f-5cf5f51eb8df/a5d3e644-22e2-429a-96de-1e706eb5d3de/image.png)
-
 차이는 주로 큐가 꽉 차 있거나 비어 있는 상황에서 어떻게 처리하는지에 따라 결정
 
-⇒ 예외 발생 메서드를 사용할 때는 큐의 상태(비었거나 꽉 찼는지)를 사전에 알 수 없을 때. try-catch 구문을 활용해서 오류 상황을 처리함.
 
-```python
+
+```java
 Queue<String> queue = new LinkedList<>();
 
 try {
@@ -45,10 +39,12 @@ try {
     System.out.println("큐가 비어 있습니다.");
 }
 ```
-
+⇒ 예외 발생 메서드를 사용할 때는 큐의 상태(비었거나 꽉 찼는지)를 사전에 알 수 없을 때. try-catch 구문을 활용해서 오류 상황을 처리함.
+    e.g.) add(e), remove(), element()
 ⇒ 값을 리턴하는 메서드는 예외 처리가 필요 없는 간단한 상황에서 활용함. 
-
-```python
+    e.g.) offer(e), poll(), peek()
+    
+```java
 q.add(num); // 스택의 push
 q.remove(); // 스택의 pop
 q.size(); // 스택의 size
@@ -82,7 +78,7 @@ PriorityQueue가 각 요소를 힙이라는 자료구조의 형태로 저장한 
 
 ### 트리 구조
 
-```python
+```java
        50
       /  \
     30    20
@@ -117,27 +113,44 @@ PriorityQueue가 각 요소를 힙이라는 자료구조의 형태로 저장한 
 
 삭제 힙 : **루트 노드**(최대값 또는 최소값)를 제거하고, 마지막 리프 노드를 루트로 이동시킨 후 **하향 이동**(Sink down)을 통해 힙의 성질을 유지
 
-## 원형 큐
 
-![ 원형 큐의 형태](https://prod-files-secure.s3.us-west-2.amazonaws.com/a8c02eb2-d622-48cd-b20f-5cf5f51eb8df/f9ae0903-80da-4c69-a2b9-1d37ead0d799/image.png)
+## 원형 큐 (Circular Queue)
 
- 원형 큐의 형태
+원형 큐는 고정된 크기를 가진 큐로, 배열의 양 끝이 연결되어 **원형으로** 동작하는 구조. 즉, 큐가 꽉 차지 않으면 항상 큐의 빈 공간을 재사용 가능. 
 
+## 원형 큐의 특징
+- **선입선출(FIFO)** 방식: 먼저 들어온 데이터가 먼저 나갑니다.
+- **고정된 크기**: 한정된 크기의 메모리를 사용하여 구현됩니다.
+- **연결된 구조**: 큐의 끝이 다시 처음과 연결된 형태로, 배열의 양 끝이 연결된 것처럼 동작합니다.
+
+![원형 큐의 형태](https://prod-files-secure.s3.us-west-2.amazonaws.com/a8c02eb2-d622-48cd-b20f-5cf5f51eb8df/f9ae0903-80da-4c69-a2b9-1d37ead0d799/image.png)
+
+---
+
+## 삽입 (Enqueue)
+
+1. **rear** 포인터가 가리키는 곳에 데이터를 삽입.
+2. 삽입이 완료되면 **rear** 포인터를 한 칸 앞으로 이동. 만약 **rear** 포인터가 배열의 끝에 도달하면 **원형**으로 돌아가 다시 배열의 처음을 가리킴.
+
+### 삽입 과정
 ![원형 큐 삽입](https://prod-files-secure.s3.us-west-2.amazonaws.com/a8c02eb2-d622-48cd-b20f-5cf5f51eb8df/aa14f09b-bc23-44cb-bdd9-f0a829d767cb/image.png)
 
-원형 큐 삽입
+---
 
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/a8c02eb2-d622-48cd-b20f-5cf5f51eb8df/291cb24a-fccb-4641-ab7f-d4b9a9b06fa0/image.png)
+## 삭제 (Dequeue)
 
+1. **front** 포인터가 가리키는 곳에서 데이터를 제거.
+2. 제거가 완료되면 **front** 포인터를 한 칸 앞으로 이동. 만약 **front** 포인터가 배열의 끝에 도달하면 **원형**으로 돌아가 다시 배열의 처음을 가리킴.
+
+### 삭제 과정
 ![원형 큐 삭제](https://prod-files-secure.s3.us-west-2.amazonaws.com/a8c02eb2-d622-48cd-b20f-5cf5f51eb8df/4e1a34c8-c5bc-49b6-a4ce-12164ff1e33e/image.png)
 
-원형 큐 삭제
+---
 
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/a8c02eb2-d622-48cd-b20f-5cf5f51eb8df/03386271-910b-4fee-9d03-216702ecf381/image.png)
+## 원형 큐가 가득 찬 경우
+- **rear**가 **front**보다 한 칸 앞에 있을 때, 즉 `front == (rear + 1) % 큐 크기`인 상태일 때는 큐가 가득음.
 
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/a8c02eb2-d622-48cd-b20f-5cf5f51eb8df/356809c5-30d3-4eb2-a88d-c03fa916676d/image.png)
-
-rear가 front보다 한 칸 전에 있을 때 우리는 원형 큐가 "꽉 차있다” 라고 함.
+![원형 큐가 가득 찬 상태](https://prod-files-secure.s3.us-west-2.amazonaws.com/a8c02eb2-d622-48cd-b20f-5cf5f51eb8df/03386271-910b-4fee-9d03-216702ecf381/image.png)
 
 ```java
 public class CircularQueue {
