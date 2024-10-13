@@ -59,23 +59,14 @@ q.poll(); // 큐의 첫번째 항목을 제거
 
 차이점 
 
-| 항목 | 예외 처리 (`try-catch`) | 값 반환 처리 (`false`나 `null`) |
-| --- | --- | --- |
+| 항목           | 예외 처리 (try-catch)                               | 값 반환 처리 (false나 null)                 |
+|----------------|-----------------------------------------------------|---------------------------------------------|
+| **코드 흐름**    | 예외 발생 시 프로그램 흐름이 바뀌며 catch 블록으로 제어가 넘어감   | 코드 흐름이 끊기지 않고 계속 실행됨             |
+| **에러 처리 방식**| 에러 발생 시 반드시 처리해야 하며, 예외가 발생한 원인 파악이 쉬움  | 단순히 실패 여부만 확인하고 넘어갈 수 있음       |
+| **복잡도**      | 복잡한 에러 상황을 처리하기 용이                            | 간단한 실패 상황을 처리하기에 적합               |
+| **성능 비용**    | 예외 발생 시 약간의 성능 비용이 있음                          | 성능 비용이 거의 없음                           |
+| **코드 간결성**  | try-catch 구문으로 인해 코드가 길어질 수 있음                  | 간결하고 명료한 코드 작성 가능                  |
 
-| **코드 흐름** | 예외 발생 시 프로그램 흐름이 바뀌며 `catch` 블록으로 제어가 넘어감 | 코드 흐름이 끊기지 않고 계속 실행됨 |
-| --- | --- | --- |
-
-| **에러 처리 방식** | 에러 발생 시 반드시 처리해야 하며, 예외가 발생한 원인 파악이 쉬움 | 단순히 실패 여부만 확인하고 넘어갈 수 있음 |
-| --- | --- | --- |
-
-| **복잡도** | 복잡한 에러 상황을 처리하기 용이 | 간단한 실패 상황을 처리하기에 적합 |
-| --- | --- | --- |
-
-| **성능 비용** | 예외 발생 시 약간의 성능 비용이 있음 | 성능 비용이 거의 없음 |
-| --- | --- | --- |
-
-| **코드 간결성** | `try-catch` 구문으로 인해 코드가 길어질 수 있음 | 간결하고 명료한 코드 작성 가능 |
-| --- | --- | --- |
 
 ### Priority Queue
 
@@ -147,41 +138,6 @@ PriorityQueue가 각 요소를 힙이라는 자료구조의 형태로 저장한 
 ![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/a8c02eb2-d622-48cd-b20f-5cf5f51eb8df/356809c5-30d3-4eb2-a88d-c03fa916676d/image.png)
 
 rear가 front보다 한 칸 전에 있을 때 우리는 원형 큐가 "꽉 차있다” 라고 함.
-
-```python
-MAX_QSIZE = 10
-class CircularQueue :
-    def __init__(self):
-        self.front = 0
-        self.rear = 0
-        self.items = [None] * MAX_QSIZE
-    
-    def isEmpty(self):
-        return self.front == self.rear
-    
-    def isFull(self):
-        return self.front == (self.rear+1)%MAX_QSIZE
-    
-    def enqueue(self, item):
-        if not self.isFull():
-            self.rear = (self.rear+1)%MAX_QSIZE
-            self.items[self.rear] = item
-    
-    def dequeue(self):
-        if not self.isEmpty():
-            self.front = (self.front+1)%MAX_QSIZE
-            return self.items[self.front]
-    
-    def peek(self):
-        if not self.isEmpty():
-            return self.items[(self.front+1)%MAX_QSIZE]
- 
-    def clear(self):
-        self.front = self.rear
-    
-    def __len__(self):
-        return (self.rear-self.front + MAX_QSIZE)%MAX_QSIZE
-```
 
 ```java
 public class CircularQueue {
