@@ -5,13 +5,6 @@
 - **후입선출** 방식(Last In, First Out, LIFO)
 
 ![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/0549c8df-a5e5-49fc-b4e6-efdcae344756/fe879dfe-a5c1-4f33-9d27-caa73f340fb6/image.png)
-### 스택이란?
-
-- 알고리즘에서 **중요한 자료구조** 중 하나
-- 데이터 저장 방식 : 선형구조
-- **후입선출** 방식(Last In, First Out, LIFO)
-
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/0549c8df-a5e5-49fc-b4e6-efdcae344756/fe879dfe-a5c1-4f33-9d27-caa73f340fb6/image.png)
 
 ### 보충/ 선형구조 & 비선형구조
 
