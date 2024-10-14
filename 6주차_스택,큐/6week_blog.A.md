@@ -1,3 +1,162 @@
+### 스택이란?
+
+- 알고리즘에서 **중요한 자료구조** 중 하나
+- 데이터 저장 방식 : 선형구조
+- **후입선출** 방식(Last In, First Out, LIFO)
+
+![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/0549c8df-a5e5-49fc-b4e6-efdcae344756/fe879dfe-a5c1-4f33-9d27-caa73f340fb6/image.png)
+
+### 보충/ 선형구조 & 비선형구조
+
+- **선형 구조 :** 데이터가 한 줄로 나열되고 순차적으로 접근. 배열이나 리스트처럼 연속된 메모리 위치에 저장
+- **비선형 구조 :** 계층적이거나 네트워크 형식으로 데이터가 연결되어 있어 더 복잡한 관계를 표현 가능. 트리나 그래프는 각 노드가 여러 개의 자식이나 이웃 노드를 가질 수 있음
+
+### 주요 연산
+
+- **push**: 스택의 맨 위에 데이터를 추가하는 연산.
+- **pop**: 스택의 맨 위에 있는 데이터를 제거하고 반환하는 연산.
+- **peek (또는 top)**: 스택의 맨 위에 있는 데이터를 제거하지 않고 반환하는 연산.
+- **isEmpty**: 스택이 비어 있는지 여부를 확인하는 연산.
+- 스택은 최상단의 데이터만 접근할 수 있으며, 중간이나 바닥의 데이터는 직접 접근할 수 없음.
+
+### 용도
+
+- 함수 호출 관리: 함수가 호출될 때 스택에 현재 상태가 저장되고, 함수가 완료되면 상태가 복원됩니다.
+- 역추적: 예를 들어, 웹 브라우저의 뒤로 가기 기능은 스택을 사용하여 이전 페이지로 돌아갑니다.
+- 수식 계산: 후위 표기법 같은 수식에서 스택을 이용해 계산을 수행합니다.
+
+### **장점**
+
+- 간단한 구조 : 스택은 구현이 간단하고 이해하기 쉬운 데이터 구조
+- 빠른 접근 속도 : 스택은 최상단 요소에 대한 접근이 O(1) 시간 복잡도로 매우 빠름. 데이터 추가와 제거도 O(1)로 효율적
+
+→ 스택은 괄호 검증, 후위 표기법 계산, DFS(깊이 우선 탐색) 등 다양한 알고리즘에서 **필수적**으로 사용
+
+### 단점
+
+- 제한된 접근 : 스택은 LIFO 구조로 인해 중간 요소에 직접 접근할 수 없음. 이로 인해 특정 요소를 찾거나 제거하기 어려움
+- 고정된 크기 (배열 기반) : 배열 기반 스택의 경우 초기 크기를 설정해야 하며, 크기를 초과하면 스택 오버플로우가 발생할 수 있음
+- 메모리 사용: 연결 리스트 기반 스택은 노드를 저장하기 위해 추가 메모리를 사용해야 하며, 이는 메모리 오버헤드로 이어질 수 있음
+- 데이터 손실 위험 : 스택이 비어 있는 상태에서 팝 연산을 시도하면 데이터 손실이나 오류가 발생할 수 있음
+
+```python
+class Stack:
+    def __init__(self):
+        self.items = []  # 스택을 저장할 리스트
+
+    def is_empty(self):
+        return len(self.items) == 0  # 스택이 비어있는지 확인
+
+    def push(self, item):
+        self.items.append(item)  # 스택에 아이템 추가
+
+    def pop(self):
+        if self.is_empty():
+            raise IndexError("스택 언더플로우: 더 이상 팝할 아이템이 없습니다.")  # 비어있을 때 팝 시 오류 발생
+        return self.items.pop()  # 스택의 최상단 아이템 제거 및 반환
+
+    def peek(self):
+        if self.is_empty():
+            raise IndexError("스택 언더플로우: 확인할 아이템이 없습니다.")  # 비어있을 때 피크 시 오류 발생
+        return self.items[-1]  # 스택의 최상단 아이템 반환
+
+    def size(self):
+        return len(self.items)  # 스택의 크기 반환
+
+# 사용 예시
+if __name__ == "__main__":
+    stack = Stack()
+    
+    stack.push(1)
+    stack.push(2)
+    stack.push(3)
+    
+    print("스택의 최상단 아이템:", stack.peek())  # 3 출력
+    print("스택의 크기:", stack.size())  # 3 출력
+    
+    print("팝된 아이템:", stack.pop())  # 3 출력
+    print("스택의 크기:", stack.size())  # 2 출력
+
+    while not stack.is_empty():
+        print("팝된 아이템:", stack.pop())  # 2, 1 출력
+
+```
+
+```java
+class Stack {
+    private int maxSize; // 스택의 최대 크기
+    private int[] stackArray; // 스택을 저장할 배열
+    private int top; // 스택의 최상단 인덱스
+
+    // 생성자
+    public Stack(int size) {
+        this.maxSize = size;
+        this.stackArray = new int[maxSize];
+        this.top = -1; // 스택이 비어있음을 나타냄
+    }
+
+    // 스택에 데이터 추가
+    public void push(int value) {
+        if (top >= maxSize - 1) {
+            System.out.println("스택 오버플로우: 더 이상 추가할 수 없습니다.");
+            return;
+        }
+        stackArray[++top] = value; // top을 증가시키고 값을 추가
+    }
+
+    // 스택에서 데이터 제거
+    public int pop() {
+        if (top < 0) {
+            System.out.println("스택 언더플로우: 제거할 데이터가 없습니다.");
+            return -1; // 에러 코드 반환
+        }
+        return stackArray[top--]; // 최상단 값을 반환하고 top을 감소시킴
+    }
+
+    // 스택의 최상단 데이터 확인
+    public int peek() {
+        if (top < 0) {
+            System.out.println("스택이 비어있습니다.");
+            return -1; // 에러 코드 반환
+        }
+        return stackArray[top]; // 최상단 값을 반환
+    }
+
+    // 스택이 비어 있는지 확인
+    public boolean isEmpty() {
+        return (top < 0);
+    }
+
+    // 스택의 크기 반환
+    public int size() {
+        return top + 1;
+    }
+}
+
+// 사용 예시
+public class Main {
+    public static void main(String[] args) {
+        Stack stack = new Stack(5); // 크기가 5인 스택 생성
+
+        stack.push(10);
+        stack.push(20);
+        stack.push(30);
+
+        System.out.println("최상단 데이터: " + stack.peek()); // 30 출력
+        System.out.println("스택 크기: " + stack.size()); // 3 출력
+
+        System.out.println("제거된 데이터: " + stack.pop()); // 30 출력
+        System.out.println("제거된 데이터: " + stack.pop()); // 20 출력
+
+        System.out.println("스택이 비어있나요? " + stack.isEmpty()); // false 출력
+
+        stack.pop(); // 10 제거
+        System.out.println("스택이 비어있나요? " + stack.isEmpty()); // true 출력
+    }
+}
+
+```
+
 # 큐
 
 ### Queue
