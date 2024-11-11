@@ -8,6 +8,12 @@
 | 2751    | 수 정렬하기2             | [바로가기](https://www.acmicpc.net/problem/2751) |
 | 24060   | 알고리즘 수업 - 병합 정렬1             | [바로가기](https://www.acmicpc.net/problem/24060) |
 | 13164    | 행복 유치원             | [바로가기](https://www.acmicpc.net/problem/13164) |
+| 1181    | 단어 정렬             | [바로가기](https://www.acmicpc.net/problem/1181) |
+| 10814    | 나이순 정렬           | [바로가기](https://www.acmicpc.net/problem/10814) |
+
+
+
+
 
 
 
