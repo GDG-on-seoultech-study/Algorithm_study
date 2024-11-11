@@ -5,9 +5,9 @@
 **기본정렬**
 | 문제 번호 | 제목               | 링크                                       |
 |-----------|--------------------|-------------------------------------------|
-| 2750    | 수 정렬하기 (버블정렬로 풀기)              | [바로가기](https://www.acmicpc.net/problem/2750) |
-| 2750    | 수 정렬하기 (선택정렬로 풀기)              | [바로가기](https://www.acmicpc.net/problem/2750) |
-| 2750    | 수 정렬하기 (삽입정렬로 풀기)              | [바로가기](https://www.acmicpc.net/problem/2750) |
+| 2751    | 수 정렬하기2             | [바로가기](https://www.acmicpc.net/problem/2751) |
+| 24060   | 알고리즘 수업 - 병합 정렬1             | [바로가기](https://www.acmicpc.net/problem/24060) |
+| 13164    | 행복 유치원             | [바로가기](https://www.acmicpc.net/problem/13164) |
 
 
 
