@@ -111,6 +111,7 @@ public class MergeSort {
 ![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/0549c8df-a5e5-49fc-b4e6-efdcae344756/b8549009-47cf-461f-8ff6-988a3497a131/image.png)
 
 기수 정렬 코드
+```java
 import java.util.Arrays;
 
 public class RadixSort {
@@ -139,4 +140,4 @@ public class RadixSort {
         for (int i = 0; i < n; i++) arr[i] = output[i];
     }
 }
-
+```
