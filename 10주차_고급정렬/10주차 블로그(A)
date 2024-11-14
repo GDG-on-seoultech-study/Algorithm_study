@@ -1,0 +1,47 @@
+## 퀵정렬(Quick Sort)
+
+→ 분할정복 알고리즘 사용
+
+ → **분할 정복 알고리즘 :** 그대로 해결할 수 없는 문제를 작은 문제로 분할하여 해결
+
+리스트에서 기준점(피벗)을 선택하고, 피벗을 기준으로 작은 값들은 왼쪽, 큰 값들은 오른쪽으로 나누어 정렬합니다. 재귀적으로 각 부분 리스트를 정렬하며 전체 리스트를 정렬합니다.
+
+- **시간 복잡도**: 평균적으로 O(nlogn), 최악의 경우 O(n2)
+- **특징**: 메모리 효율이 좋고, 리스트 내부에서 직접 교환이 이루어집니다.
+
+![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/0549c8df-a5e5-49fc-b4e6-efdcae344756/0d3535d3-bba7-40bf-ae5d-dc68dc03c1e8/image.png)
+
+퀵정렬 코드 구현
+
+```java
+public class QuickSort {
+public static void quickSort(int[] arr, int low, int high) {
+if (low < high) {
+int pivotIndex = partition(arr, low, high);
+quickSort(arr, low, pivotIndex - 1);
+quickSort(arr, pivotIndex + 1, high);
+}
+}
+
+private static int partition(int[] arr, int low, int high) {
+    int pivot = arr[high];
+    int i = low - 1;
+    for (int j = low; j < high; j++) {
+        if (arr[j] < pivot) {
+            i++;
+            swap(arr, i, j);
+        }
+    }
+    swap(arr, i + 1, high);
+    return i + 1;
+}
+
+private static void swap(int[] arr, int i, int j) {
+    int temp = arr[i];
+    arr[i] = arr[j];
+    arr[j] = temp;
+}
+}
+```
+
+https://st-lab.tistory.com/250 → 참고자료, 조금 더 deep하게 알고 싶으면 참고!
