@@ -6,11 +6,10 @@
 **정렬 B팀 복습**
 | 문제 번호 | 제목               | 링크                                       |
 |-----------|--------------------|-------------------------------------------|
-|  2750     | 수 정렬하기              | [바로가기](https://www.acmicpc.net/problem/2750) |
-|  1427     | 소트인사이드               | [바로가기](https://www.acmicpc.net/problem/1427) |
-|  2587     | 대표값2               | [바로가기](https://www.acmicpc.net/problem/2587) |
-|  11650    | 좌표 정렬하기              | [바로가기](https://www.acmicpc.net/problem/11650) |
-|  25305    | 커트라인               | [바로가기](https://www.acmicpc.net/problem/25305) |
+|  10989     | 수 정렬하기              | [바로가기](https://www.acmicpc.net/problem/10989) |
+|  11651     | 좌표정렬하기2               | [바로가기](https://www.acmicpc.net/problem/11651) |
+|  2751     | 수 정렬하기2               | [바로가기](https://www.acmicpc.net/problem/2751) |
+
 
 
 # 사용 방법
