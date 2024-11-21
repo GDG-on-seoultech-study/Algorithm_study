@@ -6,9 +6,10 @@
 **정렬 B팀 복습**
 | 문제 번호 | 제목               | 링크                                       |
 |-----------|--------------------|-------------------------------------------|
-|  10989     | 수 정렬하기              | [바로가기](https://www.acmicpc.net/problem/10989) |
-|  11651     | 좌표정렬하기2               | [바로가기](https://www.acmicpc.net/problem/11651) |
-|  2751     | 수 정렬하기2               | [바로가기](https://www.acmicpc.net/problem/2751) |
+|  2512     |  예산           | [바로가기](https://www.acmicpc.net/problem/2512) |
+|  1654     |  랜선 자르기               | [바로가기](https://www.acmicpc.net/problem/1654) |
+|  2805     |  나무 자르기              | [바로가기](https://www.acmicpc.net/problem/2805) |
+이진탐색트리 관련된 문제를 찾을 수 없어 이분탐색으로 3문제 올립니다.
 
 
 
